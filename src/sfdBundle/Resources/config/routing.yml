@@ -1,0 +1,71 @@
+sfd_homepage:
+    path:     /
+    defaults: { _controller: sfdBundle:Default:index }
+sfd_adminpage:
+    path:     /admin
+    defaults: { _controller: sfdBundle:Default:adminpage }
+sfd_sondage:
+    path:     /sondage
+    defaults: { _controller: sfdBundle:Default:sondage }
+sfd_sondagedelete:
+    path:     /{id}/sondagedelete
+    defaults: { _controller: sfdBundle:Default:sondagedelete }
+sfd_reclamationdelete:
+    path:     /{id}/reclamationdelete
+    defaults: { _controller: sfdBundle:Default:reclamationdelete }
+sfd_demandedelete:
+    path:     /{id}/demandedelete
+    defaults: { _controller: sfdBundle:Default:demandedelete }
+sfd_newsondage:
+    path:     /newsondage
+    defaults: { _controller: sfdBundle:Default:newsondage }
+sfd_reclamations:
+    path:     /reclamations
+    defaults: { _controller: sfdBundle:Default:reclamations }
+sfd_requests:
+    path:     /demandes
+    defaults: { _controller: sfdBundle:Default:demandes }
+sfd_login:
+    path:     /logging
+    defaults: { _controller: sfdBundle:Default:login }
+sfd_services:
+    path:     /sevices
+    defaults: { _controller: sfdBundle:Default:services }
+sfd_events:
+    path:     /events
+    defaults: { _controller: sfdBundle:Default:events }
+sfd_news:
+    path:     /news
+    defaults: { _controller: sfdBundle:Default:news }
+sfd_jobs:
+    path:     /jobs
+    defaults: { _controller: sfdBundle:Default:jobs }
+sfd_services:
+    path:     /services
+    defaults: { _controller: sfdBundle:Default:service }
+sfd_event:
+    path:     /event
+    defaults: { _controller: sfdBundle:Default:event }
+sfd_son:
+    path:     /son
+    defaults: { _controller: sfdBundle:Default:son }
+sfd_dem:
+    path:     /dem
+    defaults: { _controller: sfdBundle:Default:dem }
+sfd_rec:
+    path:     /rec
+    defaults: { _controller: sfdBundle:Default:rec }
+sfd_new:
+    path:     /new
+    defaults: { _controller: sfdBundle:Default:new }
+sfd_job:
+    path:     /job
+    defaults: { _controller: sfdBundle:Default:job }
+
+user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "UserBundle:User:delete" }
+users_deleteall:
+    path:     /deleteall
+    defaults: { _controller: "UserBundle:User:deleteall" }
+

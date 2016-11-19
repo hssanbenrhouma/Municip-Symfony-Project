@@ -1,3 +1,18 @@
-app:
-    resource: "@AppBundle/Controller/"
+sfd_sondage:
+    resource: "@sfdBundle/Controller/sondageController.php"
     type:     annotation
+
+sfd_reclamation:
+    resource: "@sfdBundle/Controller/reclamationController.php"
+    type:     annotation
+
+user_user:
+    resource: "@UserBundle/Controller/UserController.php"
+    type:     annotation
+
+sfd:
+    resource: "@sfdBundle/Resources/config/routing.yml"
+    prefix:   /
+
+userbundle:
+    resource: "@UserBundle/Resources/config/routing.yml"

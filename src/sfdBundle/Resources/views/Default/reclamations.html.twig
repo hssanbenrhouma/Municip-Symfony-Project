@@ -1,0 +1,85 @@
+{% extends "sfdBundle::layout.html.twig" %}
+{% block body %}
+    <div class="h-top" id="home">
+        <div class="top-header">
+            <ul class="cl-effect-16 top-nag">
+                <li><a href="{{ path('sfd_adminpage') }}" data-hover="USERS">Users</a></li>
+                <li><a  href="{{ path('sfd_events') }}" data-hover="EVENTS">Events</a></li>
+                <li><a href="{{ path('sfd_news') }}" data-hover="NEWS">News</a></li>
+                <li><a href="{{ path('sfd_jobs') }}" data-hover="JOBS">jobs</a></li>
+
+                <li><a href="{{ path('sfd_requests') }}" data-hover="REQUESTS">Requests</a></li>
+                <li><a href="{{ path('sfd_reclamations') }}" data-hover="RECLAMATIONS">Reclamations</a></li>
+                <li><a href={{ path('fos_user_security_logout') }} data-hover="LOGOUT">Logout</a></li>
+
+            </ul>
+            <div class="search-box">
+                <div class="b-search">
+                    <form>
+                        <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                        <input type="submit" value="">
+                    </form>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="full">
+        <div class="col-md-9 main">
+            <!--grids-->
+            <div class="grid-section">
+                <h3 class="tittle">RECLAMATIONS <i class="glyphicon glyphicon-stop"></i></h3>
+                <div class="form-group">
+                    <div class="container">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+
+                                <th>title</th>
+                                <th>description</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for rec in recs %}
+                                <tr>
+                                    <td>{{ rec.id }}</td>
+                                    <td>{{ rec.title }}</td>
+                                    <td>{{ rec.description }}</td>
+                                    <td><a href="#" ><button type="button" class="btn btn-info" >Modify</button></a>&nbsp;&nbsp;<a href="{{ path('sfd_reclamationdelete', { 'id': rec.id }) }}" ><button type="button" class="btn btn-danger">Delete</button></a></td>
+
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-heading"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModaldeleteall">Delete all</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModaldeleteall" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Delete all</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you want to Delete all users !</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ path('users_deleteall')}}" > <button type="button" class="btn btn-danger">Yes Delete all</button></a> &nbsp;&nbsp;  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,4 @@
+services:
+#    sfd.example:
+#        class: sfdBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

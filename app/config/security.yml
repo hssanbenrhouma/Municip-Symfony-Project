@@ -1,11 +1,20 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
-
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_ADMIN
+        ROLE_CLIENT: ROLE_CLIENT
     providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
         in_memory:
-            memory: ~
+            memory:
+                users:
+                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -14,11 +23,20 @@ security:
             security: false
 
         main:
-            anonymous: ~
-            # activate different ways to authenticate
-
-            # http_basic: ~
-            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+            pattern: ^/
+            anonymous:    true
+            provider:    fos_userbundle
+            form_login:
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+            logout:
+                path:       fos_user_security_logout
+                target:     /
+            anonymous:    true
+    #access_control:
+      #  - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+     #   - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    #    - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+   #     - { path: ^/resetting, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+  #      - { path: ^/: ROLE_CLIENT }
+ #       - { path: ^/admin, roles: ROLE_ADMIN }

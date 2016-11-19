@@ -1,0 +1,44 @@
+{% extends "sfdBundle::layout.html.twig" %}
+{% block body %}
+    <div class="h-top" id="home">
+        <div class="top-header">
+            <ul class="cl-effect-16 top-nag">
+                <li><a href="{{ path('sfd_adminpage') }}" data-hover="USERS">Users</a></li>
+                <li><a  href="{{ path('sfd_events') }}" data-hover="EVENTS">Events</a></li>
+                <li><a href="{{ path('sfd_news') }}" data-hover="NEWS">News</a></li>
+                <li><a href="{{ path('sfd_jobs') }}" data-hover="JOBS">jobs</a></li>
+                <li><a href="{{ path('sfd_sondage') }}" data-hover="SONDAGE">SONDAGE</a></li>
+                <li><a href="{{ path('sfd_requests') }}" data-hover="REQUESTS">Requests</a></li>
+                <li><a href="{{ path('sfd_reclamations') }}" data-hover="RECLAMATIONS">Reclamations</a></li>
+                <li><a href={{ path('fos_user_security_logout') }} data-hover="LOGOUT">Logout</a></li>
+
+            </ul>
+            <div class="search-box">
+                <div class="b-search">
+                    <form>
+                        <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                        <input type="submit" value="">
+                    </form>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="full">
+        <div class="col-md-9 main">
+            <!--grids-->
+            <div class="grid-section">
+                <h3 class="tittle">Ajouter sondage <i class="glyphicon glyphicon-stop"></i></h3>
+                {{ form_start(form) }}
+                {{ form_widget(form , { 'attr': {'class': '.col-md-4'} })}}
+                <br>
+                <br>
+                <div class="panel-heading"><input type="submit" value="Ajouter" class="btn-info" /></div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

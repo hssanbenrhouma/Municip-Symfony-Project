@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sondage</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sondage.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ sondage.title }}</td>
+            </tr>
+            <tr>
+                <th>Oui</th>
+                <td>{{ sondage.oui }}</td>
+            </tr>
+            <tr>
+                <th>Non</th>
+                <td>{{ sondage.non }}</td>
+            </tr>
+            <tr>
+                <th>Any</th>
+                <td>{{ sondage.any }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('user_edit', { 'id': sondage.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

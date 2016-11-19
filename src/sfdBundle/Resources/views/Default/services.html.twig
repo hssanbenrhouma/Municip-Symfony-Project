@@ -1,0 +1,93 @@
+{% extends "sfdBundle::layout.html.twig" %}
+{% block body %}
+    <div class="h-top" id="home">
+        <div class="top-header">
+            <ul class="cl-effect-16 top-nag">
+                <li><a href={{ path('sfd_services') }} data-hover="SERVICES">Services</a></li>
+                <li><a href={{ path('sfd_events') }} data-hover="EVENTS">Events</a></li>
+                <li><a href={{ path('sfd_news') }} data-hover="NEWS">News</a></li>
+                <li><a href="{{ path('sfd_jobs') }}" data-hover="JOBS">jobs</a></li>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li><a href={{ path('fos_user_security_logout') }} data-hover="LOGOUT">Logout</a></li>
+                {% else %}
+                    <li><a href={{ path('sfd_login') }} data-hover="Login">Login</a></li>
+                    <li><a href={{ path('fos_user_registration_register') }} data-hover="Registration">Registration</a></li>
+                {% endif %}
+
+            </ul>
+            <div class="search-box">
+                <div class="b-search">
+                    <form>
+                        <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                        <input type="submit" value="">
+                    </form>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="container">
+
+        <!-- Contact Form -->
+        <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="page-header">demander une feuille</h2>
+                <form name="sentMessage" id="contactForm" novalidate action="{{ path('sfd_dem') }}" method="post">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Type de feuille :</label>
+                            <input type="text" class="form-control" id="title" name="title" required data-validation-required-message="Please enter your name.">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Cin Number:</label>
+                            <input type="tel" class="form-control" id="cin" name="cin" required data-validation-required-message="Please enter your phone number.">
+                        </div>
+                    </div>
+
+
+                    <div id="success"></div>
+                    <!-- For success/fail messages -->
+                    <button type="submit" class="btn btn-info">Envoyer</button>
+                </form>
+            </div>
+            <!-- Contact Details Column -->
+
+                <div class="col-md-8">
+                    <h2 class="page-header">Send us a reclamation</h2>
+                    <form name="sentMessage" id="contactForm" novalidate action="{{ path('sfd_rec') }}" method="post">
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Titre de reclamation:</label>
+                                <input type="text" class="form-control" id="title" name="title" required data-validation-required-message="Please enter your name.">
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Description:</label>
+                                <textarea class="form-control" id="desc" name="desc" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                            </div>
+                        </div>
+                        <div id="success"></div>
+                        <!-- For success/fail messages -->
+                        <button type="submit" class="btn btn-info">Send Reclamation</button>
+                    </form>
+                </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

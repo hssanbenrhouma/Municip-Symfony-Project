@@ -1,0 +1,85 @@
+{% extends "sfdBundle::layout.html.twig" %}
+{% block body %}
+<div class="h-top" id="home">
+    <div class="top-header">
+        <ul class="cl-effect-16 top-nag">
+            <li><a href={{ path('sfd_services') }} data-hover="SERVICES">Services</a></li>
+            <li><a href={{ path('sfd_events') }} data-hover="About">Events</a></li>
+            <li><a href={{ path('sfd_news') }} data-hover="SERVICES">News</a></li>
+            <li><a href="{{ path('sfd_jobs ') }}" data-hover="SERVICES">jobs</a></li>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href={{ path('fos_user_security_logout') }} data-hover="LOGOUT">Logout</a></li>
+            {% else %}
+                <li><a href={{ path('sfd_login') }} data-hover="Login">Login</a></li>
+                <li><a href={{ path('fos_user_registration_register') }} data-hover="Registration">Registration</a></li>
+            {% endif %}
+
+        </ul>
+        <div class="search-box">
+            <div class="b-search">
+                <form>
+                    <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                    <input type="submit" value="">
+                </form>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="full">
+
+    <div class="col-md-9 main">
+        <!--banner-section-->
+        <div class="banner-section">
+<br>            <div class="single">
+                <img src="{{ asset('images/2.jpg') }}" class="img-responsive" alt="" />
+                <div class="b-bottom">
+                    <h5 class="top"><a href="#">What turn out consetetur sadipscing elit</a></h5>
+                    <p class="sub">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since,Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <p>On Aug 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a></p>
+
+                </div>
+            </div>
+           <br>
+            <br>
+            <br>
+
+            <div class="response">
+                <h4>Responses</h4>
+                <div class="media response-info">
+                    <div class="media-left response-text-left">
+                        <h5><a href="#">Username</a></h5>
+                    </div>
+                    <div class="media-body response-text-right">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <ul>
+                            <li>Sep 21, 2015</li>
+                        </ul>
+
+
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+
+            </div>
+            <div class="coment-form">
+                <h4>Leave your comment</h4>
+                <form>
+                    <input type="text" value="Name " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+                    <input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email (will not be published)*';}" required="">
+                    <input type="text" value="Website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Website';}" required="">
+                    <textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Comment...';}" required="">Your Comment...</textarea>
+                    <input type="submit" value="Submit Comment" >
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!--//banner-->
+        <!--//banner-section-->
+
+    </div>
+    <div class="clearfix"> </div>
+</div>
+{% endblock %}

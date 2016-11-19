@@ -1,0 +1,124 @@
+{% extends "sfdBundle::layout.html.twig" %}
+{% block body %}
+<div class="h-top" id="home">
+    <div class="top-header">
+        <ul class="cl-effect-16 top-nag">
+            <li><a href={{ path('sfd_services') }} data-hover="SERVICES">Services</a></li>
+            <li><a href={{ path('sfd_events') }} data-hover="EVENTS">Events</a></li>
+            <li><a href={{ path('sfd_news') }} data-hover="NEWS">News</a></li>
+            <li><a href="{{ path('sfd_jobs') }}" data-hover="JOBS">jobs</a></li>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href={{ path('fos_user_security_logout') }} data-hover="LOGOUT">Logout</a></li>
+            {% else %}
+                <li><a href={{ path('sfd_login') }} data-hover="Login">Login</a></li>
+                <li><a href={{ path('fos_user_registration_register') }} data-hover="Registration">Registration</a></li>
+            {% endif %}
+
+        </ul>
+        <div class="search-box">
+            <div class="b-search">
+                <form>
+                    <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                    <input type="submit" value="">
+                </form>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<br>
+    <br>
+    <br>
+
+    <div class="container">
+
+        <!-- Blog Post Row -->
+        <div class="row">
+
+            <div class="col-md-5">
+                <a href="blog-post.html">
+                    <img class="img-responsive img-hover" src="{{ asset('osahan/images/blog1.jpg') }}" alt="">
+                </a>
+            </div>
+            <div class="col-md-6">
+                <h3>
+                    <a href="blog-post.html">Blog Post Title</a>
+                </h3>
+                <ul class="post-meta">
+                    <li><i class="fa fa-user"></i> By <a href="#">Osahan</a></li>
+                    <li><i class="fa fa-clock-o"></i> Posted on August 28, 2016 at 10:00 PM</li>
+                    <li><i class="fa fa-tag"></i> <a href="#">WordPress</a>, <a href="#">Graphic</a></li>
+                    <li><i class="fa fa-comment-o"></i> <a href="#">4 Comments</a></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <a class="btn btn-primary" href="blog-post.html">Read More <i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Blog Post Row -->
+        <div class="row">
+
+            <div class="col-md-5">
+                <a href="blog-post.html">
+                    <img class="img-responsive img-hover" src="{{ asset('osahan/images/blog1.jpg') }}" alt="">
+                </a>
+            </div>
+            <div class="col-md-6">
+                <h3><a href="blog-post.html">Blog Post Title</a>
+                </h3>
+                <ul class="post-meta">
+                    <li><i class="fa fa-user"></i> By <a href="#">Osahan</a></li>
+                    <li><i class="fa fa-clock-o"></i> Posted on August 28, 2016 at 10:00 PM</li>
+                    <li><i class="fa fa-tag"></i> <a href="#">WordPress</a>, <a href="#">Graphic</a></li>
+                    <li><i class="fa fa-comment-o"></i> <a href="#">4 Comments</a></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <a class="btn btn-primary" href="blog-post.html">Read More <i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Blog Post Row -->
+        <div class="row">
+
+            <div class="col-md-5">
+                <a href="blog-post.html">
+                    <img class="img-responsive img-hover" src="{{ asset('osahan/images/blog1.jpg') }}" alt="">
+                </a>
+            </div>
+            <div class="col-md-6">
+                <h3><a href="blog-post.html">Blog Post Title</a>
+                </h3>
+                <ul class="post-meta">
+                    <li><i class="fa fa-user"></i> By <a href="#">Osahan</a></li>
+                    <li><i class="fa fa-clock-o"></i> Posted on August 28, 2016 at 10:00 PM</li>
+                    <li><i class="fa fa-tag"></i> <a href="#">WordPress</a>, <a href="#">Graphic</a></li>
+                    <li><i class="fa fa-comment-o"></i> <a href="#">4 Comments</a></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <a class="btn btn-primary" href="blog-post.html">Read More <i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Pager -->
+        <div class="row">
+            <ul class="pager">
+                <li class="previous"><a href="#">&larr; Older</a>
+                </li>
+                <li class="next"><a href="#">Newer &rarr;</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.row -->
+    </div>
+{% endblock %}
